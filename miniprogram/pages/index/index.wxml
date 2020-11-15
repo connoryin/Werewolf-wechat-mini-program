@@ -1,0 +1,18 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+
+  <button bindtap="handleJumpToCreate">创建房间</button>
+  <text>\n</text>
+  <form bindsubmit="handleSubmit">
+    <input type="number" name="roomNum" placeholder="输入房间号以加入"/>
+    <button form-type="submit">加入房间</button>
+  </form>
+  <text>{{motto}}</text>
+</view>
