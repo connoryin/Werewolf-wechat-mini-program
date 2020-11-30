@@ -69,7 +69,7 @@ Page({
           motto: ""
         })
         wx.navigateTo({
-          url: '../join/join?num='+roomnum+'&creator=1',
+          url: '../join/join?num='+roomnum+'&creator=0',
         })
       } else {
         this.setData({

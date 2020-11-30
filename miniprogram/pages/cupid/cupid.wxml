@@ -1,0 +1,14 @@
+<!--miniprogram/pages/cupid/cupid.wxml-->
+<view class="container">
+  <form bindsubmit="handleSubmit">
+    <checkbox-group bindchange="checkboxChange">
+      <view wx:for="{{res.players}}" wx:key="cupid">
+        <label class="checkbox">
+          <checkbox value="{{index}}" checked="{{false}}" disabled="{{disable}}"/>{{index+1}} {{item}}
+        </label>
+        <text>\n</text>
+      </view>
+    </checkbox-group>
+    <button form-type="submit" disabled="{{disable}}">确认</button>
+  </form>
+</view>

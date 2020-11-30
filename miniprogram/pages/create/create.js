@@ -79,21 +79,23 @@ Page({
         let roles = this.data.checked
         let players = []
         for (let i=0;i<e.detail.value.wolfNumber;i++){
-          roles.push("wolf")
+          roles.push("狼人")
         }
         for (let i=0;i<e.detail.value.citizenNumber;i++){
-          roles.push("citizen")
+          roles.push("普通村民")
         }
+        roles.sort(() => Math.random() - 0.5)
         for (let i=0;i<roles.length;i++){
           players.push("空位")
         }
         roomCollection.add({
           data: {
             number: roomnum,
-          players: players,
-          roles: roles,
-          dead: {},
-          state: 0
+            players: players,
+            roles: roles,
+            dead: [],
+            state: 0,
+            cp: []
           },
           success: ()=>{
             this.setData({

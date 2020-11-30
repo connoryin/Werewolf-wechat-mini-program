@@ -1,0 +1,2 @@
+<!--miniprogram/pages/cupid_result/cupid_result.wxml-->
+<text>{{info}}</text>

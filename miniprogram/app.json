@@ -4,7 +4,13 @@
     "pages/logs/logs",
     "pages/create/create",
     "pages/join/join",
-    "pages/blank/blank"
+    "pages/blank/blank",
+    "pages/wolf/wolf",
+    "pages/seer/seer",
+    "pages/witch/witch",
+    "pages/result/result",
+    "pages/cupid/cupid",
+    "pages/cupid_result/cupid_result"
   ],
   "window": {
     "backgroundTextStyle": "light",

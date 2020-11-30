@@ -1,2 +1,2 @@
 <!--miniprogram/pages/blank/blank.wxml-->
-<text>miniprogram/pages/blank/blank.wxml</text>
+<text>你的身份是{{role}}</text>

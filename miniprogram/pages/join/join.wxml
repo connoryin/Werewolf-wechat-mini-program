@@ -1,4 +1,4 @@
 <!--miniprogram/pages/join/join.wxml-->
-<button wx:for="{{res.roles}}" wx:key="unique" id="{{index}}" bindtap="sit">{{index+1}} {{res.players[index]}}</button>
+<button wx:for="{{res.players}}" wx:key="unique" id="{{index}}" bindtap="sit">{{index+1}} {{item}}</button>
 <text>\n\n\n</text>
-<button disabled="{{false}}" bindtap="start">开始游戏</button>
+<button disabled="{{disable}}" bindtap="start">开始游戏</button>

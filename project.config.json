@@ -36,21 +36,18 @@
   },
   "appid": "wx231343344d413962",
   "projectname": "werewolf",
-  "libVersion": "2.8.1",
+  "libVersion": "2.13.2",
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
   "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
   "condition": {
-    "search": {
-      "list": []
-    },
-    "conversation": {
-      "list": []
-    },
     "plugin": {
       "list": []
     },
     "game": {
+      "list": []
+    },
+    "gamePlugin": {
       "list": []
     },
     "miniprogram": {
@@ -58,7 +55,38 @@
         {
           "id": -1,
           "name": "db guide",
-          "pathName": "pages/databaseGuide/databaseGuide"
+          "pathName": "pages/databaseGuide/databaseGuide",
+          "query": ""
+        },
+        {
+          "name": "pages/seer/seer",
+          "pathName": "pages/seer/seer",
+          "query": "num=21",
+          "scene": null
+        },
+        {
+          "name": "pages/witch/witch",
+          "pathName": "pages/witch/witch",
+          "query": "num=27",
+          "scene": null
+        },
+        {
+          "name": "pages/result/result",
+          "pathName": "pages/result/result",
+          "query": "num=7&creator=1",
+          "scene": null
+        },
+        {
+          "name": "pages/cupid/cupid",
+          "pathName": "pages/cupid/cupid",
+          "query": "num=29&role=丘比特",
+          "scene": null
+        },
+        {
+          "name": "pages/cupid_result/cupid_result",
+          "pathName": "pages/cupid_result/cupid_result",
+          "query": "num=29&seat=2",
+          "scene": null
         }
       ]
     }

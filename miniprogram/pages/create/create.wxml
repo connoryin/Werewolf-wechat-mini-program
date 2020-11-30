@@ -9,23 +9,23 @@
     <text>\n</text>
     <checkbox-group bindchange="checkboxChange">
       <label class="checkbox">
-        <checkbox value="nw" checked="{{false}}"/>女巫
+        <checkbox value="女巫" checked="{{false}}"/>女巫
       </label>
       <text>\n</text>
       <label class="checkbox">
-        <checkbox value="yyj" checked="{{false}}"/>预言家
+        <checkbox value="预言家" checked="{{false}}"/>预言家
       </label>
       <text>\n</text>
       <label class="checkbox">
-        <checkbox value="lr" checked="{{false}}"/>猎人
+        <checkbox value="猎人" checked="{{false}}"/>猎人
       </label>
       <text>\n</text>
       <label class="checkbox">
-        <checkbox value="bc" checked="{{false}}"/>白痴
+        <checkbox value="白痴" checked="{{false}}"/>白痴
       </label>
       <text>\n</text>
       <label class="checkbox">
-        <checkbox value="qbt" checked="{{false}}"/>丘比特
+        <checkbox value="丘比特" checked="{{false}}"/>丘比特
       </label>
       <text>\n</text>
     </checkbox-group>

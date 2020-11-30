@@ -1,4 +1,4 @@
-// miniprogram/pages/blank/blank.js
+// miniprogram/pages/cupid_result/cupid_result.js
 Page({
 
   /**
@@ -6,65 +6,62 @@ Page({
    */
   data: {
     res: {},
-    role: "",
-    seat: null,
-    num: null,
+    info: "",
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
-    const db = wx.cloud.database()
-    const roomCollection = db.collection("room")
-    roomCollection.where({
-      number: options.num
-    }).get().then((res)=>{      
-      this.setData({
-        res: res.data[0],
-      })
-    })
-    this.setData({
-      role: options.role,
-      seat: parseInt(options.seat),
-      num: options.num,
-    })
     if (options.creator == "1") {
       this.creator = true
     } else {
       this.creator = false
     }
+    console.log(options)
+    const db = wx.cloud.database()
+    const roomCollection = db.collection("room")
+    
+    roomCollection.where({
+      number: options.num
+    }).get().then((res)=>{    
+      let info
+      if (options.seat==parseInt(res.data[0].cp[0])) {
+        info = "你的对象是"+(res.data[0].cp[1]+1)+"号"
+      } else if (options.seat==parseInt(res.data[0].cp[1])) {
+        info = "你的对象是"+(res.data[0].cp[0]+1)+"号"
+      } else {
+        info = "你没有对象"
+      }  
+      this.setData({
+        res: res.data[0],
+        info: info
+      })
+    })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    const audio = wx.createInnerAudioContext()
-    audio.autoplay = true
-    audio.src = "cloud://werewolf-9gwbfrsr2624cd12.7765-werewolf-9gwbfrsr2624cd12-1304224331/wellcom.mp3"
-    audio.onEnded(()=>{
-      const audio2 = wx.createInnerAudioContext()
-      audio2.autoplay = true
-      audio2.src = "cloud://werewolf-9gwbfrsr2624cd12.7765-werewolf-9gwbfrsr2624cd12-1304224331/see_role.mp3"
-      audio2.onEnded(()=>{
+    const audio2 = wx.createInnerAudioContext()
+    audio2.autoplay = true
+    audio2.src = "cloud://werewolf-9gwbfrsr2624cd12.7765-werewolf-9gwbfrsr2624cd12-1304224331/everyone_open.mp3"
+    audio2.onEnded(()=>{
+      const audio1 = wx.createInnerAudioContext()
+      audio1.autoplay = true
+      audio1.src = "cloud://werewolf-9gwbfrsr2624cd12.7765-werewolf-9gwbfrsr2624cd12-1304224331/blank.m4a"
+      audio1.onEnded(()=>{
         const audio3 = wx.createInnerAudioContext()
         audio3.autoplay = true
-        audio3.src = "cloud://werewolf-9gwbfrsr2624cd12.7765-werewolf-9gwbfrsr2624cd12-1304224331/close_eye.mp3"
+        audio3.src = "cloud://werewolf-9gwbfrsr2624cd12.7765-werewolf-9gwbfrsr2624cd12-1304224331/everyone_close.mp3"
         if (this.creator) {
           audio3.onEnded(()=>{
-            let state
-            if (this.data.res.roles.includes("丘比特")) {
-              state = "6"
-            } else {
-              state = "2"
-            }
             wx.cloud.callFunction({
               name: "changeState",
               data: {
-                state: state,
-                number: this.data.num
+                state: "2",
+                number: this.data.res.number
               },
               success: (res)=>{
                 console.log(res)
@@ -73,12 +70,10 @@ Page({
                 console.log(err)
               }
             })
-          
           })
         }
         
       })
-      
     })
   },
 

@@ -1,0 +1,4 @@
+<!--miniprogram/pages/seer/seer.wxml-->
+<button wx:for="{{res.players}}" wx:key="seer" id="{{index}}" bindtap="see" disabled="{{disable}}">{{index+1}} {{item}}</button>
+<text>\n</text>
+<text>{{info}}</text>

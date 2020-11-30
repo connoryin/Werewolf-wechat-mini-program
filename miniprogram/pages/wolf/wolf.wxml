@@ -1,0 +1,4 @@
+<!--miniprogram/pages/wolf/wolf.wxml-->
+<button wx:for="{{res.players}}" wx:key="wolf" id="{{index}}" bindtap="kill" disabled="{{disable}}">{{index+1}} {{item}}</button>
+<text>\n</text>
+<text>{{info}}</text>

@@ -1,0 +1,6 @@
+<!--miniprogram/pages/witch/witch.wxml-->
+<text wx:if="{{!disable}}">今晚死的人是{{deadnum}}号，点击按钮使用解药</text>
+<button bindtap="save" disabled="{{disable}}">解药</button>
+<button bindtap="skip" disabled="{{disable}}">不用药</button>
+<text>\n或者选择要毒的人</text>
+<button wx:for="{{res.players}}" wx:key="witch" id="{{index}}" bindtap="poison" disabled="{{disable}}">{{index+1}} {{item}}</button>
